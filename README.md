@@ -1,168 +1,72 @@
-# ERPNext Expenses
+<div align="center">
+  <img src="https://grow.empress.eco/uploads/default/original/2X/1/1f1e1044d3864269d2a613577edb9763890422ab.png" alt="Logo" width="80" height="80">
+  <h3 align="center">Empress: Streamline Your Expenses, Simplified</h3>
+  <p align="center">
+    A powerful tool for managing and tracking corporate expenses with ease.
+    <br />
+    <a href="https://grow.empress.eco/"><strong>Explore the Documentation »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/empress-eco/expenses/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/empress-eco/expenses/issues">Request Feature</a>
+  </p>
+</div>
 
-An expenses management module for ERPNext.
+## About The Tool
 
-⚠️ **This plugin is in ALPHA stage so it is not PRODUCTION ready.** ⚠️
+Empress is a robust expense management tool designed to simplify the process of tracking, managing, and reporting corporate expenses. It provides a comprehensive solution for all your corporate expense management needs, saving your valuable time and resources.
 
----
+### Key Features
 
-### Contributors
-**The list of people who deserves more than a simple "Thank You".**
-- [![Monolith Online](https://img.shields.io/badge/Monolith_Online-Debug_%7C_Test-red?style=plastic)](https://github.com/monolithon)
-- [![Andrew Rogers](https://img.shields.io/badge/Andrew_Rogers-Debug_%7C_Test-blue?style=plastic)](https://github.com/agrogers)
-- [![Washaqq](https://img.shields.io/badge/Washaqq-Debug_%7C_Test-orange?style=plastic)](https://github.com/washaqq)
-- [![Codi](https://img.shields.io/badge/Codi-Debug_%7C_Test-green?style=plastic)](https://github.com/hassan-youssef)
-- [![Ian Kahare](https://img.shields.io/badge/Ian_Kahare-Debug_%7C_Test-yellow?style=plastic)](https://github.com/iakah)
+- **Hierarchical Expense Types:** Tailor the hierarchy of expense types according to your requirements.
+- **Expense Items:** Create detailed expense items for accurate tracking.
+- **Expense Requests:** Generate requests for approval or rejection of a list of company expenses.
+- **Expense Entries:** Create entries based on requests or manually add company-related expenses.
+- **Expense Settings:** Activate the module and customize the update notification settings.
 
----
+## Technical Stack and Setup Instructions
 
-### Table of Contents
-- [Requirements](#requirements)
-- [Setup](#setup)
-  - [Install](#install)
-  - [Update](#update)
-  - [Uninstall](#uninstall)
-- [Usage](#usage)
-- [Issues](#issues)
-- [License](#license)
+Empress is built on Framework and Empress.
 
----
+### Prerequisites
 
-### Requirements
-- Frappe >= v13.0.0
-- ERPNext >= v13.0.0
+Ensure you have the following installed in your system:
+- Empress >= v13.0.0
+- Empress >= v13.0.0
 
----
+### Installation
 
-### Setup
+To set up a development environment:
 
-⚠️ **Important** ⚠️
+1. Navigate to your bench directory: `cd ~/Empress-bench`
+2. Clone the project from Github: `bench get-app https://github.com/empress-eco/expenses.git`
+3. Install the plugin on your site (replace `[sitename]` with the name of your site): `bench --site [sitename] install-app expenses`
 
-*Do not forget to replace "[sitename]" with the name of your site in all commands.*
+## Usage
 
-#### Install
-1. Go to bench directory
+Refer to our comprehensive [User Guide](https://grow.empress.eco/) for detailed usage instructions, including creation of expense types, items, requests, and entries.
 
-```
-cd ~/frappe-bench
-```
+## Contribution Guidelines
 
-2. Get plugin from Github
+We welcome your contributions! Follow these steps to contribute:
 
-*(Required only once)*
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-```
-bench get-app https://github.com/kid1194/erpnext_expenses
-```
+## License and Acknowledgements
 
-3. Install plugin on your site
+This project is licensed under the MIT License.
 
-```
-bench --site [sitename] install-app expenses
-```
+Special thanks to the Empress Community for their foundational contributions to the essential tools that power this project. We are profoundly grateful for their pioneering work and ongoing support.
 
-4. Read the [Usage](#usage) section below
+Also, we extend our gratitude to our contributors who have helped shape this project:
 
-#### Update
-1. Go to app directory
-
-```
-cd ~/frappe-bench/apps/expenses
-```
-
-2. Get updates from Github
-
-```
-git pull
-```
-
-3. Go to bench directory
-
-```
-cd ~/frappe-bench
-```
-
-4. Update your site
-
-```
-bench --site [sitename] migrate
-```
-
-5. (Optional) Restart bench
-
-```
-bench restart
-```
-
-#### Uninstall
-1. Go to bench directory
-
-```
-cd ~/frappe-bench
-```
-
-2. Uninstall plugin from your site
-
-```
-bench --site [sitename] uninstall-app expenses
-```
-
-3. Remove plugin from bench cache
-
-```
-bench remove-app expenses
-```
-
-4. (Optional) Restart bench
-
-```
-bench restart
-```
-
----
-
-### Usage
-1. **Expense Type**
-  - Create the hierarchy of expense types based on your needs
-  - Under each type, add the expense account for each company
-
-ℹ️ *Note: The expense accounts are inherited from parents if not set*
-
-ℹ️ *Note: Child expense types will be required to add expense accounts unless is already set in parent type or in one of its ancestors*
-
-2. **Expense Item**
-  - Create the expense items that reflect your expenses
-  - Add each expense item to the expense type that it belongs to
-  - Change the expense account for each company and/or set the expense defaults (cost, quantity, etc..)
-
-ℹ️ *Note: The expense accounts are inherited from expense types if not changed*
-
-3. **Expense**
-  - Create a company expense and fill the cost, quantity, etc..
-  - Attachments can be added or removed even after submit, but before adding the expense to an expenses request
-
-4. **Expenses Request**
-  - Create a request for a company list of expenses so that it can be approved or rejected
-  - When requests are rejected, the linked expenses will be automatically rejected & cancelled
-  - Rejected requests can be appealed and after appealing, the status of linked expenses will be automatically restored and set as Requested
-
-5. **Expenses Entry**
-  - Create entries based on a request or manually add company related expenses
-  - After submit, all the expenses will be posted to the journal
-
-6. **Expenses Settings**
-  - Enable the module (Enabled by default)
-  - Modify the update notification settings
-  - Check for update manually
-
-ℹ️ *Note: Plugin update functionality will only be enabled in the PRODUCTION stage*
-
----
-
-### Issues
-If you find bug in the plugin, please create a [bug report](https://github.com/kid1194/erpnext_expenses/issues/new?assignees=&labels=&template=bug_report.md&title=) and let us know about it.
-
----
-
-### License
-This repository has been released under the [MIT License](https://github.com/kid1194/erpnext_expenses/blob/main/LICENSE).
+- [Monolith Online](https://github.com/monolithon)
+- [Andrew Rogers](https://github.com/agrogers)
+- [Washaqq](https://github.com/washaqq)
+- [Codi](https://github.com/hassan-youssef)
+- [Ian Kahare](https://github.com/iakah)
